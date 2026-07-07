@@ -1,0 +1,48 @@
+:root {
+  --rose: #e8748a;
+  --rose-deep: #c94e6a;
+  --blush: #fce8ee;
+  --gold: #d4a85a;
+  --gold-light: #f5e0b5;
+  --cream: #fff9f5;
+  --wine: #7a1f3d;
+  --wine-soft: #9e3557;
+  --text: #3d1a27;
+  --text-soft: #6b3a4a;
+  --white: #ffffff;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #fff9f5;
+  overflow-x: hidden;
+}
+
+img, video {
+  max-width: 100%;
+}
+
+/* Remove all video native controls globally */
+video::-webkit-media-controls,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-volume-slider,
+video::-webkit-media-controls-mute-button,
+video::-webkit-media-controls-timeline,
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-fullscreen-button,
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+  -webkit-appearance: none;
+}

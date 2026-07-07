@@ -1,0 +1,1054 @@
+/* ═══════════════════════════════════════════════
+   MODERN MINIMAL THEME — page.module.css
+═══════════════════════════════════════════════ */
+
+.main {
+  min-height: 100vh;
+  background-color: #fdfbfc;
+  color: #2b2b2b;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  position: relative;
+  overflow-x: hidden;
+  padding-bottom: 100px;
+}
+
+/* Background Floating Hearts Layer */
+.heartsLayer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floatingHeart {
+  position: absolute;
+  display: block;
+  color: #e8748a;
+  animation: floatHeart var(--dur, 4s) ease-in-out infinite alternate;
+  will-change: transform;
+  user-select: none;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) rotate(-8deg) scale(1);
+  }
+
+  100% {
+    transform: translateY(-20px) rotate(8deg) scale(1.1);
+  }
+}
+
+/* Minimal Audio Toggle */
+.musicBtn {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 100;
+  background: #ffffff;
+  border: 1px solid #e5dfdf;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.musicBtnPlaying {
+  border-color: #f0b4bf;
+  color: #d67b8c;
+}
+
+/* Layout Section Divider Lines */
+.sectionDivider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 90%;
+  max-width: 1100px;
+  margin: 60px auto 40px;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: #b5a4a7;
+  font-weight: 600;
+}
+
+.sectionDivider hr {
+  flex: 1;
+  border: none;
+  height: 1px;
+  background-color: #eae1e3;
+}
+
+/* ── HERO SECTION ── */
+.hero {
+  min-height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 60px;
+  position: relative;
+  cursor: pointer;
+}
+
+.heroFrame {
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+}
+
+.heroTitle {
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.happyText {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 400;
+  color: #4a3b3d;
+  letter-spacing: -0.02em;
+}
+
+.bubuWord {
+  font-size: clamp(3.2rem, 8vw, 5.5rem);
+  font-style: italic;
+  font-weight: 800;
+  background: linear-gradient(135deg, #d67b8c 0%, #e8748a 50%, #d4a85a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.heroTapHint {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: #bfaab1;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+}
+
+/* Custom Interactive Burst Element */
+.heroBurstHeart {
+  position: absolute;
+  pointer-events: none;
+  font-size: 2rem;
+  z-index: 10;
+  animation: burstUp 1.2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+@keyframes burstUp {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -150px) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Portrait Image Framing Layout */
+.aestheticPhotoContainer {
+  margin: 24px auto 20px;
+  display: inline-block;
+  position: relative;
+  animation: floatImage 4s ease-in-out infinite;
+}
+
+.photoFrame {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.photoInner {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  border: 5px solid #ffffff;
+  box-shadow:
+    0 0 0 4px #e8748a,
+    0 12px 40px rgba(232, 116, 138, 0.35),
+    0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photoPlaceholderOriginal {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: linear-gradient(135deg, #fce8ee, #fdf0f5);
+  color: #9e3557;
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 16px;
+  gap: 8px;
+}
+
+.photoPlaceholderOriginal span {
+  font-size: 2.5rem;
+}
+
+.photoPlaceholderOriginal code {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.68rem;
+}
+
+.photoRing {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 2px dashed rgba(232, 116, 138, 0.4);
+  animation: spinRing 12s linear infinite;
+  z-index: 1;
+}
+
+.photoRing2 {
+  position: absolute;
+  inset: -26px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 168, 90, 0.25);
+  animation: spinRing 20s linear infinite reverse;
+  z-index: 1;
+}
+
+@keyframes spinRing {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Balloons Layer flanking the sides nicely */
+.balloonsWrap {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 440px;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.balloon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.balloonLeft {
+  transform: rotate(-12deg);
+  animation: balloonBobLeft 4s ease-in-out infinite;
+}
+
+.balloonRight {
+  transform: rotate(12deg);
+  animation: balloonBobRight 4.5s ease-in-out infinite;
+}
+
+@keyframes balloonBobLeft {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(-12deg);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(-8deg);
+  }
+}
+
+@keyframes balloonBobRight {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(12deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(8deg);
+  }
+}
+
+.balloonSvg {
+  width: 90px;
+  height: 115px;
+  filter: drop-shadow(0 8px 16px rgba(232, 116, 138, 0.15));
+}
+
+.balloonTag {
+  position: absolute;
+  top: 36px;
+  font-size: 1.3rem;
+}
+
+.dateLabel {
+  margin-top: 24px;
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  color: #d67b8c;
+  font-weight: 600;
+  background: #fff0f2;
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 999px;
+  border: 1px solid #fbdbe1;
+}
+
+.heroSignature {
+  margin-top: 20px;
+  font-style: italic;
+  color: #706264;
+  font-size: 0.95rem;
+}
+
+@keyframes floatImage {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* ── VISIBLE STRUCTURAL ENVELOPE DESIGN STYLES ── */
+.envelopeContainer {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0 60px;
+}
+
+.envelopeWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.envelope {
+  position: relative;
+  width: 290px;
+  height: 195px;
+  background: linear-gradient(160deg, #fff5f7 0%, #fbeff2 100%);
+  border: 2px solid #f0b4bf;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 12px 28px rgba(232, 116, 138, 0.12));
+  transition: all 0.3s ease;
+}
+
+.envelope:hover {
+  filter: drop-shadow(0 16px 36px rgba(232, 116, 138, 0.22));
+  transform: translateY(-4px);
+}
+
+.envFlap {
+  display: block;
+  width: 286px;
+  height: 100px;
+  background: linear-gradient(160deg, #f1c4c4 0%, #fcdfe4 100%);
+  clip-path: polygon(0 0, 50% 75%, 100% 0);
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  z-index: 2;
+  border: 2px solid #f0b4bf;
+  border-bottom: none;
+  transform-origin: top center;
+  transition: transform 0.4s ease;
+}
+
+.envelope:hover .envFlap {
+  transform: rotateX(-30deg);
+}
+
+.envBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 286px;
+  height: 145px;
+  background: linear-gradient(160deg, #fff5f7 0%, #fce8ee 100%);
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  border-radius: 0 0 6px 6px;
+}
+
+.envHeart {
+  font-size: 2.5rem;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.envLabel {
+  font-size: 0.85rem;
+  color: #c94e6a;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* ── EXACT ORIGINAL ENVELOPE LETTER MODAL STYLES ── */
+.letterModalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(60, 10, 25, 0.4);
+  backdrop-filter: blur(6px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px 40px;
+  overflow-y: auto;
+}
+
+.letterModal {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  margin: auto;
+  border-radius: 4px;
+}
+
+.letterModalClose {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  background: #ffffff;
+  border: 2px solid #e8748a;
+  color: #7a1f3d;
+  font-size: 1.6rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  line-height: 1;
+}
+
+.messageCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: repeating-linear-gradient(transparent, transparent 31px, #fadadd 31px, #fadadd 32px), linear-gradient(#fffdf9, #fff8f0);
+  border-radius: 4px;
+  position: relative;
+  border: 2px dashed #e8748a;
+  outline: 4px dashed #f5c6d0;
+  outline-offset: 6px;
+  overflow: hidden;
+}
+
+.messageCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 52px;
+  width: 2px;
+  background: rgba(232, 116, 138, 0.3);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.paperLines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.paperLine {
+  height: 32px;
+  border-bottom: 1px solid rgba(232, 116, 138, 0.12);
+}
+
+.cardTop {
+  background: linear-gradient(135deg, #7a1f3d 0%, #9e3557 60%, #c94e6a 100%);
+  padding: 24px 40px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cardHeartDeco {
+  font-size: 1.8rem;
+}
+
+.cardTitle {
+  font-style: italic;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  color: #f5e0b5;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+.cardBody {
+  padding: 40px 44px;
+  line-height: 1.9;
+  color: #3d1a27;
+  font-size: clamp(0.98rem, 2.2vw, 1.08rem);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.wishTextareaSheet {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px dashed rgba(232, 116, 138, 0.5);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1.05rem;
+  color: #3d1a27;
+  background: rgba(255, 255, 255, 0.6);
+  resize: none;
+  outline: none;
+  line-height: 1.8;
+  position: relative;
+  z-index: 5;
+}
+
+.cardSign {
+  margin-top: 8px;
+  color: #7a1f3d;
+  font-style: italic;
+}
+
+.cardSeal {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5rem;
+  padding: 20px 0;
+  background: linear-gradient(#fff8f0, #fffdf9);
+}
+
+/* ── REASONS LIST NOTEWALL ── */
+.loveNotesSection {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.notesHeading,
+.albumHeading {
+  text-align: center;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.8rem;
+  color: #4a3b3d;
+  margin-bottom: 40px;
+}
+
+.notesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+.loveNoteCard {
+  background: #ffffff;
+  border: 1px solid #f7eff0;
+  padding: 30px 20px 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+  position: relative;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #524345;
+}
+
+.tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 22px;
+  background-color: rgba(245, 225, 228, 0.4);
+  backdrop-filter: blur(1px);
+}
+
+/* ── SCREENSHOT STAGGERED PHOTO ALBUM LAYOUT (No Background Wrappers) ── */
+.albumSection {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.screenshotGalleryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.screenshotWrapper {
+  display: flex;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.screenshotWrapper.left {
+  justify-content: flex-start;
+}
+
+.screenshotWrapper.right {
+  justify-content: flex-end;
+}
+
+/* White Inner border completely zeroed out */
+.polaroidCard {
+  background: transparent;
+  /* Stripped background filler layouts out completely */
+  padding: 0;
+  /* Removed visual alignment offset paddings */
+  border: none;
+  outline: none;
+  box-shadow: none;
+  transform: rotate(var(--rotation));
+  transition: transform 0.3s ease;
+  width: 260px;
+  position: relative;
+}
+
+/* Let the underlying component image area control frame scaling dynamically */
+.polaroidCard img {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+}
+
+.polaroidCard:hover {
+  transform: scale(1.04) rotate(0deg) !important;
+  z-index: 10;
+}
+
+.polaroidCard:hover img {
+  box-shadow: 0 20px 40px rgba(232, 116, 138, 0.14);
+}
+
+/* Hidden decorative ribbon elements contextually extracted */
+.polaroidRibbon {
+  display: none;
+}
+
+.polaroidImageArea {
+  width: 100%;
+  aspect-ratio: 1.5 / 1;
+}
+
+.polaroidCaption {
+  display: none;
+}
+
+/* ── INTERACTIVES BLOCKS GRID ── */
+.activitiesSection {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.whiteActivityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.minimalBlock {
+  background: #ffffff;
+  border: 1px solid #eee7e8;
+  padding: 40px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 350px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.01);
+}
+
+.minimalBlock h3 {
+  font-weight: 400;
+  color: #3b2d2f;
+  margin: 0 0 16px;
+  font-size: 1.3rem;
+}
+
+.blockDesc {
+  font-size: 0.88rem;
+  color: #8c7b7d;
+  margin-bottom: 24px;
+}
+
+.cakeQuestionText {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #7a1f3d;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.actionBtn {
+  background: #2b2b2b;
+  color: #ffffff;
+  border: none;
+  padding: 12px 30px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 12px;
+}
+
+.actionBtn:hover {
+  background: #cf7484;
+}
+
+/* Cake Setup Graphics */
+.cakeWrap {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.flameWrap {
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 36px;
+  z-index: 3;
+}
+
+.flameOuter {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 36px;
+  background: linear-gradient(to top, #f5a623, #f7dc6f, #fff);
+  border-radius: 50% 50% 30% 30%;
+  animation: flameFlicker 0.6s ease-in-out infinite alternate;
+  filter: blur(1px);
+}
+
+.flameInner {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 18px;
+  background: linear-gradient(to top, #e74c3c, #f39c12);
+  border-radius: 50% 50% 30% 30%;
+  animation: flameFlicker 0.4s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes flameFlicker {
+  0% {
+    transform: translateX(-50%) scaleX(1) scaleY(1) rotate(-2deg);
+  }
+
+  100% {
+    transform: translateX(-50%) scaleX(0.85) scaleY(1.1) rotate(2deg);
+  }
+}
+
+.candle {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 48px;
+  background: linear-gradient(to right, #f5c6d0, #e8748a, #f5c6d0);
+  border-radius: 3px;
+  z-index: 1;
+}
+
+.candleSmoke {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(to top, rgba(150, 150, 150, 0.6), transparent);
+  border-radius: 999px;
+  animation: smokeRise 1.5s ease-out forwards;
+}
+
+@keyframes smokeRise {
+  from {
+    opacity: 0.7;
+    transform: translateX(-50%) scaleY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-30px) scaleY(1);
+  }
+}
+
+.cakeSvg {
+  width: 170px;
+  filter: drop-shadow(0 8px 20px rgba(232, 116, 138, 0.15));
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.wishSuccessText {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #cf7484;
+  margin-top: 14px;
+}
+
+/* Modals Configurations */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.cleanPromptModal {
+  background: #ffffff;
+  border: 1px solid #eddfe1;
+  padding: 40px 30px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.04);
+}
+
+.cleanPromptModal h3 {
+  font-weight: 400;
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.cleanPromptModal input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd2d4;
+  outline: none;
+  margin: 20px 0 10px;
+  font-family: inherit;
+  text-align: center;
+}
+
+.inputError {
+  border-color: #d9534f !important;
+  background: #fff5f5;
+}
+
+.errorMsg {
+  color: #d9534f;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.submitBtn {
+  background: #2b2b2b;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  width: 100%;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  background: #cf7484;
+}
+
+/* Game Interfaces Layout Elements */
+.gameWindow {
+  background: #ffffff;
+  border: 1px solid #eae1e3;
+  width: 100%;
+  max-width: 550px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.04);
+}
+
+.gameInstruction {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #8c7b7d;
+  margin-bottom: 14px;
+}
+
+.gameHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #7a6b6d;
+  margin-bottom: 16px;
+}
+
+.cleanGameArea {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  background: #fffcfd;
+  border: 1px solid #f5eaec;
+  overflow: hidden;
+}
+
+.catchingHeart {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.1s;
+}
+
+.gameFinished {
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.finalScoreLabel {
+  font-size: 1.4rem;
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.btnRow {
+  display: flex;
+  gap: 12px;
+}
+
+.secondaryBtn {
+  background: #ffffff;
+  border: 1px solid #ddd2d4;
+  color: #524345;
+  padding: 12px 24px;
+  width: 100%;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ── RESPONSIVE MEDIA QUERIES ── */
+@media (max-width: 768px) {
+  .cardBody {
+    padding: 32px 24px;
+  }
+
+  .notesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .balloonsWrap {
+    width: 340px;
+    top: 10px;
+  }
+
+  .balloonSvg {
+    width: 75px;
+    height: 95px;
+  }
+
+  .screenshotGalleryContainer {
+    gap: 30px;
+  }
+
+  .polaroidCard {
+    width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .notesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .btnRow {
+    flex-direction: column;
+  }
+
+  .balloonsWrap {
+    width: 290px;
+    top: 20px;
+  }
+
+  .balloonSvg {
+    width: 65px;
+    height: 85px;
+  }
+
+  .screenshotGalleryContainer {
+    gap: 24px;
+  }
+
+  .screenshotWrapper {
+    justify-content: center ;
+  }
+
+  .polaroidCard {
+    width: 85%;
+    max-width: 240px;
+    transform: rotate(var(--rotation)) scale(1);
+  }
+}
