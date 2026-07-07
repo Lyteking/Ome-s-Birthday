@@ -582,7 +582,7 @@ On this day that you have added a year to your age, I pray the blessings of God 
         <div className={styles.modalBackdrop} onClick={() => setCakePasswordOpen(false)}>
           <div className={styles.cleanPromptModal} onClick={(e) => e.stopPropagation()}>
             <h3>🔐 Before you blow…</h3>
-            <p className={styles.cakeQuestionText}>Color of the dress she wore on our first official dinner together</p>
+            <p className={styles.cakeQuestionText}>Color of the dress you wore on our first official dinner together</p>
             <input
               className={cakeError ? styles.inputError : ''}
               type="text"
