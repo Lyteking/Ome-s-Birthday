@@ -632,7 +632,13 @@
   width: 100%;
   position: relative;
   z-index: 2;
+  
+  /* ── Add these three performance optimization lines ── */
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
+
 
 .screenshotWrapper.left {
   justify-content: flex-start;
@@ -644,18 +650,18 @@
 
 /* White Inner border completely zeroed out */
 .polaroidCard {
-  background: transparent;
-  /* Stripped background filler layouts out completely */
-  padding: 0;
-  /* Removed visual alignment offset paddings */
-  border: none;
-  outline: none;
-  box-shadow: none;
+  background: #ffffff;
+  padding: 16px 16px 40px 16px;
+  border: 1px solid rgba(232, 116, 138, 0.15);
+  outline: 1px dashed rgba(232, 116, 138, 0.25);
+  outline-offset: -8px;
+  box-shadow: 0 12px 30px rgba(232, 116, 138, 0.06);
   transform: rotate(var(--rotation));
-  transition: transform 0.3s ease;
-  width: 260px;
-  position: relative;
+  
+  /* ── Optimize transition target ── */
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
 }
+
 
 /* Let the underlying component image area control frame scaling dynamically */
 .polaroidCard img {
