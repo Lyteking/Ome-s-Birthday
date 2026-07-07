@@ -72,13 +72,64 @@ export default function BirthdayPage() {
     }
   };
 
+  // ── Bulletproof App-Switching & Visibility Audio Control ──
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
-    const tryPlay = () => {
+
+    const startAudio = () => {
       audio.play().then(() => setAudioPlaying(true)).catch(() => {});
     };
+
+    const stopAudio = () => {
+      audio.pause();
+      setAudioPlaying(false);
+    };
+
+    // 1. Initial execution logic with fallback interaction catchers
+    const tryPlay = () => {
+      audio.play()
+        .then(() => setAudioPlaying(true))
+        .catch(() => {
+          const playOnInteraction = () => {
+            audio.play().then(() => {
+              setAudioPlaying(true);
+              window.removeEventListener('click', playOnInteraction);
+              window.removeEventListener('touchstart', playOnInteraction);
+            }).catch(() => {});
+          };
+          window.addEventListener('click', playOnInteraction);
+          window.addEventListener('touchstart', playOnInteraction);
+        });
+    };
     setTimeout(tryPlay, 800);
+
+    // 2. Multitasking & Global OS Visibility Watchers
+    const handlePauseEvents = () => stopAudio();
+    const handlePlayEvents = () => {
+      // Only resume if the tab/app is explicitly visible and focused
+      if (!document.hidden) {
+        startAudio();
+      }
+    };
+
+    // Desktop Tab-switching
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopAudio(); else handlePlayEvents();
+    });
+
+    // Mobile App-switching & Device Locking Hooks
+    window.addEventListener('blur', handlePauseEvents);
+    window.addEventListener('focus', handlePlayEvents);
+    window.addEventListener('pagehide', handlePauseEvents);
+    window.addEventListener('pageshow', handlePlayEvents);
+
+    return () => {
+      window.removeEventListener('blur', handlePauseEvents);
+      window.removeEventListener('focus', handlePlayEvents);
+      window.removeEventListener('pagehide', handlePauseEvents);
+      window.removeEventListener('pageshow', handlePlayEvents);
+    };
   }, []);
 
   const spawnHeroHeartAnimation = (e) => {
