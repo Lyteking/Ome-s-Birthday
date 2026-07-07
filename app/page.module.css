@@ -96,6 +96,9 @@
   padding: 120px 24px 60px;
   position: relative;
   cursor: pointer;
+
+  /* Add this line below to completely remove the blue flashing box */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .heroFrame {
